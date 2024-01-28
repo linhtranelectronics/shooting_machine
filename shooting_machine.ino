@@ -1,6 +1,6 @@
 
-#define STEPMAX 2900
-#define ANGLEMAX 125
+#define STEPMAX 1750
+#define ANGLEMAX 103
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
@@ -56,7 +56,7 @@ void setup()
     delay(1);
   }
   stepper.setEnablePin(EN_PIN);
-  stepper.setPinsInverted(false, false, true);
+  stepper.setPinsInverted(true, false, true);
   stepper.enableOutputs();
   stepper.setMaxSpeed(300000);
   stepper.setAcceleration(5000.0);
@@ -250,12 +250,12 @@ void lesson1()
 void lesson2()
 {
   changePWM(0, angleToPulse(0));
-  changePWM(1, angleToPulse(ANGLEMAX));
+  changePWM(1, angleToPulse(ANGLEMAX-5));
   changePWM(2, angleToPulse(0));
   changePWM(3, angleToPulse(0));
 
   changePWM(4, angleToPulse(0));
-  changePWM(5, angleToPulse(ANGLEMAX));
+  changePWM(5, angleToPulse(ANGLEMAX+9));
   changePWM(6, angleToPulse(0));
   changePWM(7, angleToPulse(0));
 
@@ -268,7 +268,7 @@ void lesson3()
 {
   changePWM(0, angleToPulse(0));
   changePWM(1, angleToPulse(0));
-  changePWM(2, angleToPulse(ANGLEMAX));
+  changePWM(2, angleToPulse(ANGLEMAX+12));
   changePWM(3, angleToPulse(0));
 
   changePWM(4, angleToPulse(0));
@@ -291,7 +291,7 @@ void lesson4()
   changePWM(4, angleToPulse(0));
   changePWM(5, angleToPulse(0));
   changePWM(6, angleToPulse(0));
-  changePWM(7, angleToPulse(ANGLEMAX));
+  changePWM(7, angleToPulse(ANGLEMAX+3));
 
   changePWM(8, 0);
   changePWM(9, 0);
